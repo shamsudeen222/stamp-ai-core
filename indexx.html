@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stamp AI - Command Center</title>
+    <!-- Built-in Pure CSS styling for 100% offline compatibility -->
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { bg-color: #020617; background: #020617; color: #f8fafc; min-height: screen; min-height: 100vh; padding-bottom: 40px; }
+        header { display: flex; justify-content: space-between; items-center: center; align-items: center; padding: 16px 24px; background: #0f172a; border-b: 1px solid #1e293b; border-bottom: 1px solid #1e293b; }
+        .logo-box { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { w-8: 32px; h-8: 32px; width: 32px; height: 32px; border-radius: 8px; background: #10b981; color: #020617; font-weight: bold; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+        .logo-text { font-size: 20px; font-weight: bold; tracking-tight: -0.025em; letter-spacing: -0.5px; }
+        .logo-text span { font-size: 12px; color: #94a3b8; margin-left: 8px; font-family: monospace; }
+        .badge { padding: 4px 12px; border-radius: 9999px; font-size: 12px; font-weight: 600; background: rgba(16, 185, 129, 0.1); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.2); }
+        
+        .main-container { max-width: 1280px; margin: 24px auto; padding: 0 24px; display: flex; flex-direction: column; gap: 24px; }
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+        .card { background: #0f172a; border: 1px solid #1e293b; border-radius: 12px; padding: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .card-title { font-size: 12px; font-weight: 500; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
+        .card-number { font-size: 30px; font-weight: bold; margin-top: 8px; }
+        .text-green { color: #34d399; } .text-blue { color: #60a5fa; } .text-purple { color: #c084fc; }
+
+        .split-layout { display: grid; grid-template-columns: 1fr; gap: 24px; }
+        @media (min-width: 1024px) { .split-layout { grid-template-columns: 1fr 2fr; } }
+        
+        .panel-title { font-size: 18px; font-weight: bold; border-bottom: 1px solid #1e293b; padding-bottom: 8px; margin-bottom: 16px; }
+        .panel-subtitle { font-size: 12px; color: #94a3b8; margin-bottom: 24px; }
+        .toggle-row { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #020617; border: 1px solid #1e293b; border-radius: 8px; margin-bottom: 16px; }
+        .toggle-row span { font-size: 14px; font-weight: 500; }
+        .toggle-row input { width: 18px; height: 18px; cursor: pointer; accent-color: #10b981; }
+        
+        .log-stream { background: #020617; border: 1px solid #1e293b; border-radius: 8px; padding: 12px; height: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+        .log-entry { padding: 12px; border-radius: 6px; border: 1px solid #1e293b; background: #0f172a; font-family: monospace; font-size: 13px; line-height: 1.5; color: #cbd5e1; }
+        .log-blocked { background: rgba(244, 63, 94, 0.05); border-color: rgba(244, 63, 94, 0.2); color: #fda4af; }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Section -->
+    <header>
+        <div class="logo-box">
+            <div class="logo-icon">S</div>
+            <div class="logo-text">STAMP AI<span>v1.0.0</span></div>
+        </div>
+        <div id="system-badge" class="badge">ALL SYSTEMS SECURE</div>
+    </header>
+
+    <div class="main-container">
+        
+        <!-- Live Numerical Metric Indicators Row -->
+        <section class="metrics-grid">
+            <div class="card">
+                <div class="card-title">Scam Interceptions</div>
+                <div id="stat-interceptions" class="card-number text-green">1,420</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Monitored AI Output Streams</div>
+                <div id="stat-transactions" class="card-number text-blue">45,230</div>
+            </div>
+            <div class="card">
+                <div class="card-title">Protected Endpoints & Citizens</div>
+                <div id="stat-citizens" class="card-number text-purple">8,940</div>
+            </div>
+        </section>
+
+        <!-- Dynamic Control Dashboard vs Feed Split Layout -->
+        <div class="split-layout">
+            
+            <!-- Left Grid: Operational Interactive Controls -->
+            <div class="card">
+                <h2 class="panel-title">🛡️ Deployment Gate</h2>
+                <p class="panel-subtitle">Programmatic runtime circuit-breakers decoupled from LLM parameters.</p>
+                
+                <div class="toggle-row">
+                    <span>Block BVN & Credential Requests</span>
+                    <input type="checkbox" checked onchange="toggleGuardrail(this, 'Block BVN')">
+                </div>
+                <div class="toggle-row">
+                    <span>Intercept Unverified Bank Routing</span>
+                    <input type="checkbox" checked onchange="toggleGuardrail(this, 'Bank Intercept')">
+                </div>
+                <div class="toggle-row">
+                    <span>Halt Strategic Prompt Injection</span>
+                    <input type="checkbox" checked onchange="toggleGuardrail(this, 'Prompt Shield')">
+                </div>
+            </div>
+
+            <!-- Right Grid: Live Threat Feeds Panel -->
+            <div class="card">
+                <h2 class="panel-title">📡 Live Security Telemetry Feed</h2>
+                <div id="log-container" class="log-stream">
+                    <div class="log-entry">Initializing connection to local core telemetry stream data arrays...</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Core Runtime Dynamic Integration Logic -->
+    <script>
+        const API_URL = 'http://localhost:5000/api/telemetry';
+        let activeBypasses = 0;
+
+        async function fetchTelemetry() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                
+                document.getElementById('stat-interceptions').innerText = data.stats.interceptions.toLocaleString();
+                document.getElementById('stat-transactions').innerText = data.stats.transactions.toLocaleString();
+                document.getElementById('stat-citizens').innerText = data.stats.citizens.toLocaleString();
+
+                const container = document.getElementById('log-container');
+                container.innerHTML = '';
+                
+                data.logs.forEach(log => {
+                    const div = document.createElement('div');
+                    if (log.text.includes('[Blocked]')) {
+                        div.className = 'log-entry log-blocked';
+                    } else {
+                        div.className = 'log-entry';
+                    }
+                    div.innerText = log.text;
+                    container.appendChild(div);
+                });
+            } catch (err) {
+                console.error("Local data synchronization failure:", err);
+            }
+        }
+
+        function toggleGuardrail(checkbox, guardrailName) {
+            const badge = document.getElementById('system-badge');
+            if (!checkbox.checked) {
+                activeBypasses++;
+                badge.style.background = "rgba(245, 158, 11, 0.1)";
+                badge.style.color = "#fbbf24";
+                badge.style.borderColor = "rgba(245, 158, 11, 0.2)";
+                badge.innerHTML = `CRISIS WARNING: GUARDRAILS COMPROMISED`;
+            } else {
+                activeBypasses--;
+                if (activeBypasses <= 0) {
+                    activeBypasses = 0;
+                    badge.style.background = "rgba(16, 185, 129, 0.1)";
+                    badge.style.color = "#34d399";
+                    badge.style.borderColor = "rgba(16, 185, 129, 0.2)";
+                    badge.innerHTML = `ALL SYSTEMS SECURE`;
+                }
+            }
+        }
+
+        setInterval(fetchTelemetry, 1000);
+        fetchTelemetry();
+    </script>
+</body>
+</html>
