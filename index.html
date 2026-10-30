@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stamp AI | Autonomous Agent Containment & Security Infrastructure</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background: #020617; color: #f8fafc; line-height: 1.6; padding-bottom: 80px; }
+        
+        /* Premium Navigation Bar */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: #0f172a; border-bottom: 1px solid #1e293b; position: sticky; top: 0; z-index: 100; }
+        .logo-box { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 36px; height: 36px; border-radius: 8px; background: #10b981; color: #020617; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+        .logo-text { font-size: 22px; font-weight: 800; letter-spacing: -0.75px; color: #f8fafc; }
+        .logo-text span { font-size: 11px; color: #10b981; margin-left: 8px; font-family: monospace; font-weight: 600; letter-spacing: 1px; }
+        
+        /* High-Contrast Interactive CTA Buttons */
+        .btn-primary { background: #10b981; color: #020617; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s ease-in-out; border: 1px solid #10b981; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary:hover { background: transparent; color: #10b981; box-shadow: 0 0 15px rgba(16, 185, 129, 0.3); }
+        .btn-secondary { background: transparent; color: #94a3b8; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; border: 1px solid #334155; transition: all 0.2s ease; }
+        .btn-secondary:hover { color: #f8fafc; border-color: #64748b; background: rgba(51, 65, 85, 0.2); }
+
+        /* Executive Hero Framing */
+        .hero { max-width: 1000px; margin: 80px auto 60px auto; padding: 0 24px; text-align: center; }
+        .hero-badge { display: inline-block; padding: 6px 14px; background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.15); color: #34d399; font-size: 12px; font-weight: 600; border-radius: 9999px; margin-bottom: 24px; letter-spacing: 0.5px; }
+        .hero h1 { font-size: 46px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.15; margin-bottom: 24px; color: #f8fafc; }
+        .hero p { font-size: 18px; color: #94a3b8; max-width: 760px; margin: 0 auto 32px auto; }
+        .hero-actions { display: flex; justify-content: center; align-items: center; gap: 16px; }
+
+        /* Structured Executive Dashboard Sections */
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; gap: 64px; }
+        .section-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+        @media (min-width: 768px) { .section-grid { grid-template-columns: 1fr 1fr; } }
+        
+        .card { background: #0f172a; border: 1px solid #1e293b; border-radius: 16px; padding: 32px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3); }
+        .section-title { font-size: 22px; font-weight: 800; color: #f8fafc; border-bottom: 2px solid #1e293b; padding-bottom: 12px; margin-bottom: 24px; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+        .text-paragraph { font-size: 15px; color: #cbd5e1; line-height: 1.7; margin-bottom: 20px; text-align: justify; }
+        
+        /* Premium Enterprise Roadmap Architecture */
+        .timeline { display: flex; flex-direction: column; gap: 24px; position: relative; padding-left: 24px; border-left: 2px solid #1e293b; }
+        .timeline-item { position: relative; }
+        .timeline-item::before { content: ''; position: absolute; width: 14px; height: 14px; background: #1e293b; border: 3px solid #020617; border-radius: 50%; left: -32px; top: 4px; }
+        .item-active::before { background: #10b981; box-shadow: 0 0 10px #10b981; }
+        .item-title { font-size: 15px; font-weight: 700; color: #f8fafc; margin-bottom: 6px; }
+        .item-desc { font-size: 13px; color: #94a3b8; line-height: 1.6; }
+
+        /* Value Prop Pillars Grid */
+        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 16px; }
+        .pillar-card { background: #0b1329; border: 1px solid #1e293b; border-radius: 12px; padding: 20px; }
+        .pillar-title { font-size: 14px; font-weight: 700; color: #34d399; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .pillar-desc { font-size: 13px; color: #cbd5e1; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+    <!-- Corporate Enterprise Header -->
+    <header>
+        <div class="logo-box">
+            <div class="logo-icon">S</div>
+            <div class="logo-text">Stamp AI<span>PRE-SEED LABS</span></div>
+        </div>
+        <a href="indexx.html" class="btn-primary">Launch Alpha Demo 🚀</a>
+    </header>
+
+    <!-- Professional Investor Hero Frame -->
+    <section class="hero">
+        <div class="hero-badge">ENTERPRISE CONTAINMENT INFRASTRUCTURE</div>
+        <h1>Securing the Multi-Agent Automation Frontier</h1>
+        <p>Stamp AI engineers decoupled programmatic circuit breakers and out-of-context safety proxies situated natively between autonomous AI systems and external execution environments.</p>
+        <div class="hero-actions">
+            <a href="indexx.html" class="btn-primary">Explore Live Simulation Engine</a>
+            <a href="https://github.com" target="_blank" class="btn-secondary">Review GitHub Codebase</a>
+        </div>
+    </section>
+
+    <!-- Main Corporate Strategy Suite -->
+    <main class="main-content">
+        <div class="section-grid">
+            <!-- Value Proposition Panel -->
+            <div class="card">
+                <h2 class="section-title">🎯 Vision & Value Proposition</h2>
+                <p class="text-paragraph">
+                    <strong>The Infrastructure Challenge:</strong> As corporations and developer ecosystems aggressively transition from single-prompt language models to autonomous multi-agent networks, they grant software models unprecedented execution privileges over database layers, financial rails, and secure API channels. This shift introduces massive, un-contained vulnerabilities. Autonomous agents remain deeply susceptible to strategic prompt injections, memory parameter bypasses, and systematic identity harvesting vectors.
+                </p>
+                <p class="text-paragraph">
+                    <strong>Our Decoupled Proxy Mesh:</strong> Stamp AI addresses this vector by implementing an external, low-latency protective firewall mesh. Unlike standard security layers that operate inside the model's context window, Stamp evaluates semantic behavioral outputs completely independently of host network configurations. This isolates and intercepts anomalous queries before statements can write malicious state changes to an environment.
+                </p>
+            </div>
+
+            <!-- 12-Month Milestone Timeline Panel -->
+            <div class="card">
+                <h2 class="section-title">🗺️ Institutional 12-Month Roadmap</h2>
+                <div class="timeline">
+                    <div class="timeline-item item-active">
+                        <div class="item-title">Phase 1: Localized Threat Sandbox (Current Milestone)</div>
+                        <div class="item-desc">Architected and compiled localized proxy logic engines (server.js) paired with reactive anti-scam dashboard arrays. Codebases structured openly on GitHub infrastructure to ensure developer validation.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="item-title">Phase 2: Mesh Integration & Formal Structural Wrap (Months 1–3)</div>
+                        <div class="item-desc">Finalizing corporate legal wrapping via LLC formalization. Onboarding specialized engineering personnel to convert core out-of-context monitoring loops into compiled low-latency libraries while locking in technical compliance advisors.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="item-title">Phase 3: Deep Red Teaming & Continuous Injection (Months 4–6)</div>
+                        <div class="item-desc">Procuring scalable cloud compute allocations and high-speed network nodes. Running exhaustive, high-velocity automated prompt injection scripts to harden defensive interception bounds, targeting a baseline 99.9% neutralization accuracy rate.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="item-title">Phase 4: Global B2B API Scaling & Licensing (Months 7–12)</div>
+                        <div class="item-desc">Deploying robust, cloud-native enterprise API subscription gateways for international business frameworks. Protecting structural proxy containment code bases through defensive utility patents and intellectual property filings.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2: Tactical Application Vectors -->
+        <div class="card">
+            <h2 class="section-title">🛡️ Systemic Threat Vector Mitigation Profiles</h2>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-title">Identity Shielding</div>
+                    <div class="pillar-desc">Isolating and freezing autonomous agent outputs attempting to illicitly extract sensitive digital credentials, structural password protocols, or high-risk national identifier networks (BVN / SSN) at the boundary layer.</div>
